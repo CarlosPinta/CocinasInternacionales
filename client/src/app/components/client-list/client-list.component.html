@@ -1,0 +1,29 @@
+<button type="button" class="btn btn-success btn-lg"  routerLink="/clients/add">Agregar Nuevo</button>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellido</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cédula/RUC</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dirección</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Correo Electronico</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor="let client of clients">
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{client.NOMBRECLIENTE}}</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{client.APELLIDOCLIENTE}}</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{client.IDENTIFICACIONCLIENTE}}</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{client.DIRECCIONCLIENTE}}</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{client.EMAILCLIENTE}}</font></font></td>
+        <td>
+            <a [routerLink]="['/clients/edit', client.CODIGOCLIENTE]"  class="btn btn-warning">Editar</a>
+            <a href="/" class="btn btn-info">Detalles</a>
+            <button class="btn btn-danger" (click)="deleteClient(client.CODIGOCLIENTE)">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
